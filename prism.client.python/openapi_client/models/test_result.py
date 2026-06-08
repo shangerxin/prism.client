@@ -27,12 +27,12 @@ class TestResult(BaseModel):
     """
     TestResult
     """ # noqa: E501
-    id: Optional[StrictInt] = None
-    test_build_id: Optional[StrictInt] = Field(default=None, alias="testBuildId")
-    test_result_id: Optional[StrictInt] = Field(default=None, alias="TestResultId")
-    result_type: Optional[ResultType] = Field(default=None, alias="ResultType")
-    test_build: Optional[TestBuild] = Field(default=None, alias="TestBuild")
-    __properties: ClassVar[List[str]] = ["id", "testBuildId", "TestResultId", "ResultType", "TestBuild"]
+    projectName: Optional[str] = Field(default=None, alias="projectName")
+    testJobName: Optional[str] = Field(default=None, alias="testJobName")
+    buildGuid: Optional[str] = Field(default=None, alias="buildGuid")
+    dataInfo: Optional[str] = Field(default=None, alias="dataInfo")
+    data: Optional[str] = Field(default=None, alias="data")
+    __properties: ClassVar[List[str]] = ["projectName", "testJobName", "buildGuid", "dataInfo", "data"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -73,12 +73,6 @@ class TestResult(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of result_type
-        if self.result_type:
-            _dict['ResultType'] = self.result_type.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of test_build
-        if self.test_build:
-            _dict['TestBuild'] = self.test_build.to_dict()
         return _dict
 
     @classmethod
@@ -91,11 +85,11 @@ class TestResult(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "testBuildId": obj.get("testBuildId"),
-            "TestResultId": obj.get("TestResultId"),
-            "ResultType": ResultType.from_dict(obj["ResultType"]) if obj.get("ResultType") is not None else None,
-            "TestBuild": TestBuild.from_dict(obj["TestBuild"]) if obj.get("TestBuild") is not None else None
+            "projectName": obj.get("projectName"),
+            "testJobName": obj.get("testJobName"),
+            "buildGuid": obj.get("buildGuid"),
+            "dataInfo": obj.get("dataInfo"),
+            "data": obj.get("data")
         })
         return _obj
 
