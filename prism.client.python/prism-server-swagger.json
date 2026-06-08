@@ -1,0 +1,1405 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "prism.web.service"
+  },
+  "host": "localhost:44303",
+  "schemes": [ "https" ],
+  "paths": {
+    "/api/v1/Dashboard": {
+      "get": {
+        "tags": [ "Dashboard" ],
+        "operationId": "Dashboard_Get",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [ "Dashboard" ],
+        "operationId": "Dashboard_Post",
+        "consumes": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "body",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "204": { "description": "No Content" } }
+      }
+    },
+    "/api/v1/Dashboard/{id}": {
+      "get": {
+        "tags": [ "Dashboard" ],
+        "operationId": "Dashboard_Get",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "string" }
+          }
+        }
+      },
+      "put": {
+        "tags": [ "Dashboard" ],
+        "operationId": "Dashboard_Put",
+        "consumes": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "value",
+            "in": "body",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "204": { "description": "No Content" } }
+      },
+      "delete": {
+        "tags": [ "Dashboard" ],
+        "operationId": "Dashboard_Delete",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": { "204": { "description": "No Content" } }
+      }
+    },
+    "/api/v1/Project/Id/{name}": {
+      "get": {
+        "tags": [ "Project" ],
+        "operationId": "Project_Id",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "string" }
+          }
+        }
+      }
+    },
+    "/api/v1/Project": {
+      "get": {
+        "tags": [ "Project" ],
+        "operationId": "Project_Get",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "string" }
+          }
+        }
+      },
+      "post": {
+        "tags": [ "Project" ],
+        "operationId": "Project_Post",
+        "consumes": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "body",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Project" }
+          }
+        }
+      }
+    },
+    "/api/v1/Project/{id}": {
+      "get": {
+        "tags": [ "Project" ],
+        "operationId": "Project_Get",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "string" }
+          }
+        }
+      },
+      "put": {
+        "tags": [ "Project" ],
+        "operationId": "Project_Put",
+        "consumes": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "value",
+            "in": "body",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "boolean" }
+          }
+        }
+      },
+      "delete": {
+        "tags": [ "Project" ],
+        "operationId": "Project_Delete",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": { "204": { "description": "No Content" } }
+      }
+    },
+    "/api/v1/TestBuild/Id/{guid}": {
+      "get": {
+        "tags": [ "TestBuild" ],
+        "operationId": "TestBuild_Id",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "guid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "string" }
+          }
+        }
+      }
+    },
+    "/api/v1/TestBuild/GUID/{id}": {
+      "get": {
+        "tags": [ "TestBuild" ],
+        "operationId": "TestBuild_GUID",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "string" }
+          }
+        }
+      }
+    },
+    "/api/v1/TestBuild/LastSuccess/{testJobName}": {
+      "get": {
+        "tags": [ "TestBuild" ],
+        "operationId": "TestBuild_LastSuccess",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "testJobName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "string" }
+          }
+        }
+      }
+    },
+    "/api/v1/TestBuild/LastSuccess/{testJobName}/{testResultType}": {
+      "get": {
+        "tags": [ "TestBuild" ],
+        "operationId": "TestBuild_Last",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "testJobName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "testResultType",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "string" }
+          }
+        }
+      }
+    },
+    "/api/v1/TestBuild/BuildList/{testJobName}/{start}/{end}": {
+      "get": {
+        "tags": [ "TestBuild" ],
+        "operationId": "TestBuild_BuildList",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "testJobName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "start",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "end",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "string" }
+          }
+        }
+      }
+    },
+    "/api/v1/TestBuild": {
+      "get": {
+        "tags": [ "TestBuild" ],
+        "operationId": "TestBuild_Get",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "string" }
+          }
+        }
+      },
+      "post": {
+        "tags": [ "TestBuild" ],
+        "operationId": "TestBuild_Post",
+        "consumes": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "body",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/TestBuild" }
+          }
+        }
+      }
+    },
+    "/api/v1/TestBuild/{id}": {
+      "get": {
+        "tags": [ "TestBuild" ],
+        "operationId": "TestBuild_Get",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "string" }
+          }
+        }
+      },
+      "put": {
+        "tags": [ "TestBuild" ],
+        "operationId": "TestBuild_Put",
+        "consumes": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "value",
+            "in": "body",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "boolean" }
+          }
+        }
+      },
+      "delete": {
+        "tags": [ "TestBuild" ],
+        "operationId": "TestBuild_Delete",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": { "204": { "description": "No Content" } }
+      }
+    },
+    "/api/v1/TestJob/Id/{name}": {
+      "get": {
+        "tags": [ "TestJob" ],
+        "operationId": "TestJob_Id",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "string" }
+          }
+        }
+      }
+    },
+    "/api/v1/TestJob": {
+      "get": {
+        "tags": [ "TestJob" ],
+        "operationId": "TestJob_Get",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "string" }
+          }
+        }
+      },
+      "post": {
+        "tags": [ "TestJob" ],
+        "operationId": "TestJob_Post",
+        "consumes": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "body",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/TestJob" }
+          }
+        }
+      }
+    },
+    "/api/v1/TestJob/{id}": {
+      "get": {
+        "tags": [ "TestJob" ],
+        "operationId": "TestJob_Get",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/TestJob" }
+          }
+        }
+      },
+      "put": {
+        "tags": [ "TestJob" ],
+        "operationId": "TestJob_Put",
+        "consumes": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "value",
+            "in": "body",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "boolean" }
+          }
+        }
+      },
+      "delete": {
+        "tags": [ "TestJob" ],
+        "operationId": "TestJob_Delete",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": { "204": { "description": "No Content" } }
+      }
+    },
+    "/api/v1/TestResult/{projectName}/{testJobName}/{buildGuid}/{dataInfo}": {
+      "get": {
+        "tags": [ "TestResult" ],
+        "operationId": "TestResult_GetResult",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "projectName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "testJobName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "buildGuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "dataInfo",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "string" }
+          }
+        }
+      }
+    },
+    "/api/v1/TestResult/Environment/{projectName}/{testJobName}/{buildGuid}/{dataInfo}": {
+      "get": {
+        "tags": [ "TestResult" ],
+        "operationId": "TestResult_GetEnvironment",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "projectName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "testJobName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "buildGuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "dataInfo",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "string" }
+          }
+        }
+      }
+    },
+    "/api/v1/TestResult/Parameter/{projectName}/{testJobName}/{buildGuid}/{dataInfo}": {
+      "get": {
+        "tags": [ "TestResult" ],
+        "operationId": "TestResult_GetParameter",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "projectName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "testJobName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "buildGuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "dataInfo",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "string" }
+          }
+        }
+      }
+    },
+    "/api/v1/TestResult/Metadata/{projectName}/{testJobName}/{buildGuid}/{dataInfo}": {
+      "get": {
+        "tags": [ "TestResult" ],
+        "operationId": "TestResult_GetMetadata",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "projectName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "testJobName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "buildGuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "dataInfo",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "string" }
+          }
+        }
+      }
+    },
+    "/api/v1/TestResult/GetResults": {
+      "post": {
+        "tags": [ "TestResult" ],
+        "operationId": "TestResult_GetResults",
+        "consumes": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "body",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "string" }
+          }
+        }
+      }
+    },
+    "/api/v1/TestResult/AddResult": {
+      "post": {
+        "tags": [ "TestResult" ],
+        "operationId": "TestResult_AddTestResult",
+        "consumes": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "result",
+            "in": "body",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "boolean" }
+          }
+        }
+      }
+    },
+    "/api/v1/TestResult/AddEnvirnoment": {
+      "post": {
+        "tags": [ "TestResult" ],
+        "operationId": "TestResult_AddEnvironment",
+        "consumes": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "environment",
+            "in": "body",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "boolean" }
+          }
+        }
+      }
+    },
+    "/api/v1/TestResult/AddParameter": {
+      "post": {
+        "tags": [ "TestResult" ],
+        "operationId": "TestResult_AddParameter",
+        "consumes": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "parameter",
+            "in": "body",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "boolean" }
+          }
+        }
+      }
+    },
+    "/api/v1/TestResult/AddMetadata": {
+      "post": {
+        "tags": [ "TestResult" ],
+        "operationId": "TestResult_AddMetadata",
+        "consumes": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "metadata",
+            "in": "body",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "boolean" }
+          }
+        }
+      }
+    },
+    "/api/v1/TestResult/CompareResults": {
+      "get": {
+        "tags": [ "TestResult" ],
+        "operationId": "TestResult_CompareResults",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "projectName",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "testJobName",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "dataInfo",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "currentBuildGuid",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "compareBuildGuid",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "referenceBuildGuid",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "string" }
+          }
+        }
+      },
+      "post": {
+        "tags": [ "TestResult" ],
+        "operationId": "TestResult_CompareResults",
+        "consumes": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "results",
+            "in": "body",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "string" }
+          }
+        }
+      }
+    },
+    "/api/v1/TestResult": {
+      "post": {
+        "tags": [ "TestResult" ],
+        "operationId": "TestResult_Add",
+        "consumes": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "data",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "AddImp",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/Func[String,Task[Boolean]]" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "boolean" }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Project": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "productId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Product": { "$ref": "#/definitions/Product" },
+        "TestJobs": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestJob" }
+        }
+      }
+    },
+    "Product": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "DeviceUnderTests": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/DeviceUnderTest" }
+        },
+        "Projects": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Project" }
+        },
+        "Release": { "$ref": "#/definitions/Release" },
+        "TestPlans": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestPlan" }
+        }
+      }
+    },
+    "TestJob": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": { "type": "string" },
+        "url": { "type": "string" },
+        "credentialId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "defaultTestMachineId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "projectId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Project": { "$ref": "#/definitions/Project" },
+        "TestBuilds": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestBuild" }
+        },
+        "TestCases": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestCase" }
+        },
+        "UserCredential": { "$ref": "#/definitions/UserCredential" },
+        "TestJobParameters": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestJobParameter" }
+        },
+        "TestJobReportTemplates": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestJobReportTemplate" }
+        }
+      }
+    },
+    "DeviceUnderTest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "machineId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "productId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Product": { "$ref": "#/definitions/Product" },
+        "TestMachine": { "$ref": "#/definitions/TestMachine" }
+      }
+    },
+    "Release": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "version": { "type": "string" },
+        "productId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Product": { "$ref": "#/definitions/Product" }
+      }
+    },
+    "TestPlan": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "productId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Product": { "$ref": "#/definitions/Product" },
+        "TestPlanRecipes": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestPlanRecipe" }
+        }
+      }
+    },
+    "TestBuild": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "testJobId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "buildResultId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "testResultId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "guid": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "startTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "endTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "timeoutHours": {
+          "format": "double",
+          "type": "number"
+        },
+        "ResultType": { "$ref": "#/definitions/ResultType" },
+        "ResultType1": { "$ref": "#/definitions/ResultType" },
+        "TestJob": { "$ref": "#/definitions/TestJob" },
+        "TestReports": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestReport" }
+        },
+        "TestResults": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestResult" }
+        }
+      }
+    },
+    "TestCase": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "jobId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "scriptId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Script": { "$ref": "#/definitions/Script" },
+        "TestJob": { "$ref": "#/definitions/TestJob" },
+        "TestPlanRecipes": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestPlanRecipe" }
+        }
+      }
+    },
+    "UserCredential": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "userName": { "type": "string" },
+        "password": { "type": "string" },
+        "token": { "type": "string" },
+        "description": { "type": "string" },
+        "createdby": { "type": "string" },
+        "scope": { "type": "string" },
+        "TestJobs": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestJob" }
+        },
+        "TestMachines": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestMachine" }
+        }
+      }
+    },
+    "TestJobParameter": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "testJobId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": { "type": "string" },
+        "value": { "type": "string" },
+        "defaultValue": { "type": "string" },
+        "TestJob": { "$ref": "#/definitions/TestJob" }
+      }
+    },
+    "TestJobReportTemplate": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": { "type": "string" },
+        "template": { "type": "string" },
+        "testJobId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "emailTo": { "type": "string" },
+        "emailCc": { "type": "string" },
+        "emailBcc": { "type": "string" },
+        "TestJob": { "$ref": "#/definitions/TestJob" },
+        "TestReports": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestReport" }
+        }
+      }
+    },
+    "TestMachine": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": { "type": "string" },
+        "address": { "type": "string" },
+        "credentialId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DeviceUnderTests": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/DeviceUnderTest" }
+        },
+        "UserCredential": { "$ref": "#/definitions/UserCredential" }
+      }
+    },
+    "TestPlanRecipe": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "testPlanId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "testSuitId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "testCaseId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "schedual": { "type": "string" },
+        "TestCase": { "$ref": "#/definitions/TestCase" },
+        "TestPlan": { "$ref": "#/definitions/TestPlan" },
+        "TestSuite": { "$ref": "#/definitions/TestSuite" }
+      }
+    },
+    "ResultType": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": { "type": "string" },
+        "TestBuilds": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestBuild" }
+        },
+        "TestBuilds1": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestBuild" }
+        },
+        "TestResults": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestResult" }
+        }
+      }
+    },
+    "TestReport": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": { "type": "string" },
+        "report": { "type": "string" },
+        "buildId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "testReportTemplateId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TestBuild": { "$ref": "#/definitions/TestBuild" },
+        "TestJobReportTemplate": { "$ref": "#/definitions/TestJobReportTemplate" }
+      }
+    },
+    "TestResult": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "testBuildId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "TestResultId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ResultType": { "$ref": "#/definitions/ResultType" },
+        "TestBuild": { "$ref": "#/definitions/TestBuild" }
+      }
+    },
+    "Script": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": { "type": "string" },
+        "uri": { "type": "string" },
+        "scriptRepoId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "command": { "type": "string" },
+        "ScriptRepository": { "$ref": "#/definitions/ScriptRepository" },
+        "TestCases": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestCase" }
+        }
+      }
+    },
+    "TestSuite": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": { "type": "string" },
+        "TestPlanRecipes": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestPlanRecipe" }
+        }
+      }
+    },
+    "ScriptRepository": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": { "type": "string" },
+        "url": { "type": "string" },
+        "Scripts": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Script" }
+        }
+      }
+    },
+    "Func[String,Task[Boolean]]": {
+      "type": "object",
+      "properties": {
+        "Method": {
+          "$ref": "#/definitions/MethodInfo",
+          "readOnly": true
+        },
+        "Target": {
+          "type": "object",
+          "readOnly": true
+        }
+      }
+    },
+    "MethodInfo": {
+      "type": "object",
+      "properties": {}
+    }
+  }
+}

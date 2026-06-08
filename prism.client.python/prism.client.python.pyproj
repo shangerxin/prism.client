@@ -11,6 +11,7 @@
     <OutputPath>.</OutputPath>
     <Name>prism.client.python</Name>
     <RootNamespace>prism.client.python</RootNamespace>
+    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,9 +24,64 @@
   <ItemGroup>
     <Compile Include="csv_to_json.py" />
     <Compile Include="json_to_csv.py" />
+    <Compile Include="prism_client\api\dashboard_api.py" />
+    <Compile Include="prism_client\api\project_api.py" />
+    <Compile Include="prism_client\api\test_build_api.py" />
+    <Compile Include="prism_client\api\test_job_api.py" />
+    <Compile Include="prism_client\api\test_result_api.py" />
+    <Compile Include="prism_client\api\__init__.py" />
+    <Compile Include="prism_client\api_client.py" />
+    <Compile Include="prism_client\api_response.py" />
+    <Compile Include="prism_client\configuration.py" />
+    <Compile Include="prism_client\exceptions.py" />
+    <Compile Include="prism_client\models\device_under_test.py" />
+    <Compile Include="prism_client\models\func_string_task_boolean.py" />
+    <Compile Include="prism_client\models\product.py" />
+    <Compile Include="prism_client\models\project.py" />
+    <Compile Include="prism_client\models\release.py" />
+    <Compile Include="prism_client\models\result_type.py" />
+    <Compile Include="prism_client\models\script.py" />
+    <Compile Include="prism_client\models\script_repository.py" />
+    <Compile Include="prism_client\models\test_build.py" />
+    <Compile Include="prism_client\models\test_case.py" />
+    <Compile Include="prism_client\models\test_job.py" />
+    <Compile Include="prism_client\models\test_job_parameter.py" />
+    <Compile Include="prism_client\models\test_job_report_template.py" />
+    <Compile Include="prism_client\models\test_machine.py" />
+    <Compile Include="prism_client\models\test_plan.py" />
+    <Compile Include="prism_client\models\test_plan_recipe.py" />
+    <Compile Include="prism_client\models\test_report.py" />
+    <Compile Include="prism_client\models\test_result.py" />
+    <Compile Include="prism_client\models\test_suite.py" />
+    <Compile Include="prism_client\models\user_credential.py" />
+    <Compile Include="prism_client\models\__init__.py" />
+    <Compile Include="prism_client\rest.py" />
+    <Compile Include="prism_client\__init__.py" />
+    <Compile Include="prism_client.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="__init__.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="prism_client\py.typed" />
+    <Content Include="prism-server-swagger.json" />
     <Content Include="requirements.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env\">
+      <Id>env</Id>
+      <Version>3.14</Version>
+      <Description>env (Python 3.14.2)</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="prism_client\" />
+    <Folder Include="prism_client\api\" />
+    <Folder Include="prism_client\models\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

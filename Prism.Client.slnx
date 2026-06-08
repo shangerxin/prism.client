@@ -1,5 +1,14 @@
 <Solution>
-  <Project Path="prism.client.python/prism.client.python.pyproj" Type="888888a0-9f3d-457c-b088-3a5042f75d52">
+  <Folder Name="/Solution Items/">
+    <File Path=".dockerignore" />
+    <File Path=".git" />
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="LICENSE.txt" />
+    <File Path="README.md" />
+    <File Path="version.txt" />
+  </Folder>
+  <Project Path="prism.client.python/prism.client.python.pyproj" Type="888888a0-9f3d-457c-b088-3a5042f75d52" Id="9ab46758-5e96-4874-86e5-35c434390d75">
     <Build Project="false" />
   </Project>
 </Solution>
