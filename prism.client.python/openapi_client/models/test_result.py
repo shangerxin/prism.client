@@ -31,8 +31,13 @@ class TestResult(BaseModel):
     testJobName: Optional[str] = Field(default=None, alias="testJobName")
     buildGuid: Optional[str] = Field(default=None, alias="buildGuid")
     dataInfo: Optional[str] = Field(default=None, alias="dataInfo")
+    buildResult: Optional[str] = Field(default=None, alias="buildResult")
+    testResult: Optional[str] = Field(default=None, alias="testResult")
+    startTime: Optional[str] = Field(default=None, alias="startTime")
+    endTime: Optional[str] = Field(default=None, alias="endTime")
+    timeoutHours: Optional[int] = Field(default=None, alias="timeoutHours")
     data: Optional[str] = Field(default=None, alias="data")
-    __properties: ClassVar[List[str]] = ["projectName", "testJobName", "buildGuid", "dataInfo", "data"]
+    __properties: ClassVar[List[str]] = ["projectName", "testJobName", "buildGuid", "dataInfo", "buildResult", "testResult", "startTime", "endTime", "timeoutHours", "data"]
 
     model_config = ConfigDict(
         validate_by_name=True,

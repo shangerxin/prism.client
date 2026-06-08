@@ -53,6 +53,10 @@ def parse_args():
     parser.add_argument('-m', '--meta-type', type=str, choices=['env', 'meta', 'param', 'result'], help='The data type to save into the server.')
     parser.add_argument('-n', '--name', required=True, type=str, help='Output root directory or a file path')
     parser.add_argument('-s', '--start', default=datetime.now().isoformat(), type=str, help="The build start time")
+    parser.add_argument('-e', '--end', default=datetime.now().isoformat(), type=str, help="The build end time")
+    parser.add_argument('-x', '--timeout-hours', default=0, type=int, help="The timeout hours for the test job, default is 0 which means no timeout.")
+    parser.add_argument('-b', '--build-result', default='Pass', type=str, choices=['NotExecuted', 'Pass', 'Fail', 'Blocked', 'InProgress', 'Hang', 'Paused', 'Aborted'], help="The build result, pass or fail.")
+    parser.add_argument('-r', '--test-result', default='Pass', type=str, choices=['NotExecuted', 'Pass', 'Fail', 'Blocked', 'InProgress', 'Hang', 'Paused', 'Aborted'], help="The test result, pass or fail.")
     parser.add_argument('-g', '--build-guid', default=str(uuid.uuid4()), help="Build GUID for tracking the build results in the server.")
 
     return parser.parse_args()
@@ -84,11 +88,11 @@ def _get_data_from_file(csv: Path, json: Path):
         raise ValueError("Either csv or json should be provided.")
 
 
-def upload(host, project, test_job, meta_type, name, data, build_guid):
+def upload(host, project, test_job, meta_type, name, data, build_guid, build_result, test_result, start, end, timeout_hours):
     with api.ApiClient(config) as api_client:
         # Create an instance of the API class
 
-        body = TestResult(projectName=project, testJobName=test_job, buildGuid=build_guid, dataInfo=meta_type, data=data).to_json()
+        body = TestResult(projectName=project, testJobName=test_job, buildGuid=build_guid, dataInfo=meta_type, data=data, buildResult=build_result, testResult=test_result, startTime=start, endTime=end, timeoutHours=timeout_hours).to_json()
         result: RESTResponse = api_client.call_api("POST", f"{host}/TestResult/AddResult/", body=body, header_params={"Content-Type": "application/json"})
 
         if result.status == 200:
@@ -99,7 +103,7 @@ def upload(host, project, test_job, meta_type, name, data, build_guid):
 
 def main(args):
     data = _get_data_from_file(args.csv, args.json)
-    upload(args.host, args.project, args.test_job, args.meta_type, args.name, data, args.build_guid)
+    upload(args.host, args.project, args.test_job, args.meta_type, args.name, data, args.build_guid, args.build_result, args.test_result, args.start, args.end, args.timeout_hours)
 
 
 if __name__ == "__main__":
