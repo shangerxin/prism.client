@@ -33,4 +33,6 @@ from openapi_client.models.test_report import TestReport
 from openapi_client.models.test_result import TestResult
 from openapi_client.models.test_suite import TestSuite
 from openapi_client.models.user_credential import UserCredential
-
+from openapi_client.models.test_environment import TestEnvironment
+from openapi_client.models.test_parameter import TestParameter
+from openapi_client.models.test_metadata import TestMetadata

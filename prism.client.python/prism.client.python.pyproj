@@ -45,10 +45,13 @@
     <Compile Include="openapi_client\models\script_repository.py" />
     <Compile Include="openapi_client\models\test_build.py" />
     <Compile Include="openapi_client\models\test_case.py" />
+    <Compile Include="openapi_client\models\test_environment.py" />
     <Compile Include="openapi_client\models\test_job.py" />
     <Compile Include="openapi_client\models\test_job_parameter.py" />
     <Compile Include="openapi_client\models\test_job_report_template.py" />
     <Compile Include="openapi_client\models\test_machine.py" />
+    <Compile Include="openapi_client\models\test_metadata.py" />
+    <Compile Include="openapi_client\models\test_parameter.py" />
     <Compile Include="openapi_client\models\test_plan.py" />
     <Compile Include="openapi_client\models\test_plan_recipe.py" />
     <Compile Include="openapi_client\models\test_report.py" />
