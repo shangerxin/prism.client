@@ -38,6 +38,7 @@ import sys
 import doctest
 import json
 import uuid
+import csv
 
 from datetime import datetime
 from pathlib import Path
