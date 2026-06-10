@@ -220,6 +220,8 @@ def main(args):
         upload_parameter(args.host, args.project, args.test_job, args.name, data, args.build_guid)
     elif args.meta_type == 'meta':
         upload_metadata(args.host, args.project, args.test_job, args.name, data, args.build_guid)
+    else:
+        raise ValueError(f"meta_type {args.meta_type} is not supported, should be one of result, env, param or meta.")
 
 
 if __name__ == "__main__":
