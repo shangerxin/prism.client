@@ -165,6 +165,36 @@ def is_datatime(value):
         return False
 
 
+def is_json_file(path):
+    try:
+        with open(path, 'r') as f:
+            json.load(f)
+        return True
+    except (ValueError, FileNotFoundError):
+        return False
+
+
+def is_csv_file(path):
+    try:
+        with open(path, mode='r', newline='', encoding='utf-8') as f:
+            # Read first 2048 bytes to analyze the dialect
+            sample = f.read(2048)
+            f.seek(0)
+            
+            # Sniffer checks if the file has standard delimiters (like commas or tabs)
+            csv.Sniffer().sniff(sample)
+            
+            # Read through the file to check for structural inconsistencies
+            reader = csv.reader(f)
+            for row in reader:
+                pass 
+                
+        return True
+    except (csv.Error, UnicodeDecodeError, IOError):
+        # Fails if file is corrupted, not formatted properly, or contains binary data
+        return False
+
+
 def main(args):
     if args.build_guid and not is_uuid(args.build_guid):
         raise ValueError(f"build_guid {args.build_guid} should be a valid UUID string.")
@@ -174,6 +204,12 @@ def main(args):
 
     if args.timeout_hours < 0:
         raise ValueError(f"timeout_hours {args.timeout_hours} should be a non-negative integer.")
+
+    if args.csv and not is_csv_file(args.csv):
+        raise ValueError(f"csv file {args.csv} is not a valid CSV file and is not utf-8 compatible encoding.")
+
+    if args.json and not is_json_file(args.json):
+        raise ValueError(f"json file {args.json} is not a valid JSON file.")
 
     data = _get_data_from_file(args.csv, args.json)
     if args.meta_type == 'result':
