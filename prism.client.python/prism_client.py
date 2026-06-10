@@ -157,9 +157,23 @@ def is_uuid(value):
         return False
 
 
+def is_datatime(value):
+    try:
+        datetime.fromisoformat(value)
+        return True
+    except ValueError:
+        return False
+
+
 def main(args):
     if args.build_guid and not is_uuid(args.build_guid):
         raise ValueError(f"build_guid {args.build_guid} should be a valid UUID string.")
+
+    if (args.start and not is_datatime(args.start)) or (args.end and not is_datatime(args.end)):
+        raise ValueError(f"start {args.start} and end {args.end} should be valid datetime strings.")
+
+    if args.timeout_hours < 0:
+        raise ValueError(f"timeout_hours {args.timeout_hours} should be a non-negative integer.")
 
     data = _get_data_from_file(args.csv, args.json)
     if args.meta_type == 'result':
