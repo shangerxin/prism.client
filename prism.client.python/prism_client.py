@@ -149,7 +149,18 @@ def upload_metadata(host, project, test_job, name, data, build_guid):
             print(f"Failed to upload data to server, status code: {result.status}, reason: {result.reason}")
 
 
+def is_uuid(value):
+    try:
+        uuid.UUID(str(value))
+        return True
+    except ValueError:
+        return False
+
+
 def main(args):
+    if args.build_guid and not is_uuid(args.build_guid):
+        raise ValueError(f"build_guid {args.build_guid} should be a valid UUID string.")
+
     data = _get_data_from_file(args.csv, args.json)
     if args.meta_type == 'result':
         upload_result(args.host, args.project, args.test_job, args.name, data, args.build_guid, args.build_result, args.test_result, args.start, args.end, args.timeout_hours)
