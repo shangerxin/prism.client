@@ -51,8 +51,8 @@ Required arguments:
 Optional arguments:
 
 - `-g, --build-guid`: build [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) (auto-generated if omitted)
-- `-s, --start`: start time (ISO string, defaults to current time)
-- `-e, --end`: end time (ISO string, defaults to current time)
+- `-s, --start`: start time ([ISO string](https://en.wikipedia.org/wiki/ISO_8601), defaults to current time)
+- `-e, --end`: end time ([ISO string](https://en.wikipedia.org/wiki/ISO_8601), defaults to current time)
 - `-x, --timeout-hours`: timeout in hours (default `0`)
 - `-b, --build-result`: one of `NotExecuted|Pass|Fail|Blocked|InProgress|Hang|Paused|Aborted`
 - `-r, --test-result`: one of `NotExecuted|Pass|Fail|Blocked|InProgress|Hang|Paused|Aborted`
