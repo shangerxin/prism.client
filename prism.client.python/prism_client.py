@@ -1,4 +1,5 @@
 #! /usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 usage: prism_client.py [-h] -t TEST_JOB -p PROJECT [-c CSV] [-j JSON] [-m {env,meta,param,result}] -n NAME
                        [-s START] [-e END] [-x TIMEOUT_HOURS]
@@ -91,7 +92,7 @@ def _get_data_from_file(csv: Path, json: Path):
         data = csv_to_json_obj(csv)
         return data
     elif json and json.is_file():
-        with open(json, 'r') as f:
+        with open(json, 'r', encoding='utf-8') as f:
             data = json.load(f)
             return data
     else:
@@ -178,17 +179,15 @@ def is_json_file(path):
 def is_csv_file(path):
     try:
         with open(path, mode='r', newline='', encoding='utf-8') as f:
-            # Read first 2048 bytes to analyze the dialect
-            sample = f.read(2048)
-            f.seek(0)
-            
-            # Sniffer checks if the file has standard delimiters (like commas or tabs)
-            csv.Sniffer().sniff(sample)
-            
             # Read through the file to check for structural inconsistencies
             reader = csv.reader(f)
+            row_count = 0
             for row in reader:
+                row_count += 1
                 pass 
+
+            if row_count < 2:
+                return False
                 
         return True
     except (csv.Error, UnicodeDecodeError, IOError):
@@ -207,7 +206,7 @@ def main(args):
         raise ValueError(f"timeout_hours {args.timeout_hours} should be a non-negative integer.")
 
     if args.csv and not is_csv_file(args.csv):
-        raise ValueError(f"csv file {args.csv} is not a valid CSV file and is not utf-8 compatible encoding.")
+        raise ValueError(f"csv file {args.csv} is not a valid CSV file. It is not utf-8 compatible encoding or only has less than 2 lines.")
 
     if args.json and not is_json_file(args.json):
         raise ValueError(f"json file {args.json} is not a valid JSON file.")
