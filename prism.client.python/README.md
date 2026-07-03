@@ -1,7 +1,4 @@
-# Prism Clients
-- Python
-
-# Python Client 
+# Prism Python Client
 
 Python helper for uploading benchmark and test artifacts to a Prism server.
 
