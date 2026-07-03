@@ -14,6 +14,18 @@ mypy = ">= 1.5"
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools]
+py-modules = ["prism_client", "csv_to_json", "json_to_csv"]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["openapi_client*"]
+exclude = ["test*", "env*"]
+
+[tool.setuptools.package-data]
+openapi_client = ["py.typed"]
+
 [tool.pylint.'MESSAGES CONTROL']
 extension-pkg-whitelist = "pydantic"
 
@@ -57,7 +69,7 @@ disallow_any_generics = true
 
 [[tool.mypy.overrides]]
 module = [
-  "openapi_client.configuration",
+  "prism_client",
 ]
 warn_unused_ignores = true
 strict_equality = true

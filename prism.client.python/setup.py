@@ -3,7 +3,6 @@ from pathlib import Path
 from setuptools import find_packages, setup
 
 NAME = "prism.py.client"
-VERSION = "1.0.0"
 DESCRIPTION = "Python client for prism.web.service"
 AUTHOR = "Shang, Erxin"
 AUTHOR_EMAIL = "shangerxin@hotmail.com"
@@ -18,6 +17,11 @@ INSTALL_REQUIRES = [
 ]
 
 ROOT = Path(__file__).resolve().parent
+VERSION_FILE = ROOT / "version.txt"
+VERSION = VERSION_FILE.read_text(encoding="utf-8").strip()
+if not VERSION:
+    raise ValueError("version.txt is empty")
+
 README_CANDIDATES = [ROOT / "README.md"]
 README = next((path for path in README_CANDIDATES if path.exists()), None)
 LONG_DESCRIPTION = (
@@ -41,9 +45,15 @@ setup(
     license="MIT",
     python_requires=PYTHON_REQUIRES,
     install_requires=INSTALL_REQUIRES,
+    py_modules=["prism_client", "csv_to_json", "json_to_csv"],
     packages=find_packages(exclude=("test", "tests")),
     include_package_data=True,
     package_data={"prism_python_client": ["py.typed"]},
+    entry_points={
+        "console_scripts": [
+            "prism_client=prism_client:cli",
+        ],
+    },
     keywords=["prism", "prism.python.client", "prism.py.client"],
     classifiers=[
         "Development Status :: 4 - Beta",

@@ -224,10 +224,15 @@ def main(args):
         raise ValueError(f"meta_type {args.meta_type} is not supported, should be one of result, env, param or meta.")
 
 
+def cli():
+    """Console entry point for installed package usage."""
+    main(parse_args())
+
+
 if __name__ == "__main__":
     if len(sys.argv) == 1:
         print(f"*** Run doctest for {__file__}! ***")
         doctest.testmod(optionflags=doctest.ELLIPSIS |
                         doctest.IGNORE_EXCEPTION_DETAIL)
     else:
-        main(parse_args())
+        cli()
