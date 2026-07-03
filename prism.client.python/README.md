@@ -10,6 +10,10 @@ This README is intentionally focused on `prism_client.py` usage and examples.
 - Python 3.10+
 
 ## Install
+From pip
+```sh
+pip install prism.py.client
+```
 
 From this folder:
 
