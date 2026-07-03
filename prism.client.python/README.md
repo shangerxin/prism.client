@@ -1,4 +1,5 @@
-# Prism Python Client
+
+# Python Client 
 
 Python helper for uploading benchmark and test artifacts to a Prism server.
 
@@ -34,6 +35,16 @@ The script can upload four metadata types:
 `host` should include the API prefix, for example `https://localhost:44303/api/v1`.
 
 ## CLI Usage
+
+Installed from pipe
+```sh
+python -m prism_client -h
+usage: python.exe -m prism_client [-h] -t TEST_JOB -p PROJECT [-c CSV] [-j JSON] [-m {env,meta,param,result}] -n NAME
+                                  [-s START] [-e END] [-x TIMEOUT_HOURS]
+                                  [-b {NotExecuted,Pass,Fail,Blocked,InProgress,Hang,Paused,Aborted}]
+                                  [-r {NotExecuted,Pass,Fail,Blocked,InProgress,Hang,Paused,Aborted}] [-g BUILD_GUID]
+                                  host
+```
 
 ```sh
 python prism_client.py host -t TEST_JOB -p PROJECT -m {env,meta,param,result} -n NAME (-j JSON | -c CSV) [options]
