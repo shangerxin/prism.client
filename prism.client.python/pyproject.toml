@@ -1,3 +1,41 @@
+[project]
+name = "prism.py.client"
+dynamic = ["version"]
+description = "Python client for prism.web.service"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+  {name = "Shang, Erxin", email = "shangerxin@hotmail.com"},
+]
+keywords = ["prism", "prism.python.client", "prism.py.client"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+  "urllib3>=2.1.0,<3.0.0",
+  "python-dateutil>=2.8.2",
+  "pydantic>=2.11",
+  "typing-extensions>=4.7.1",
+]
+
+[project.urls]
+Repository = "https://github.com/shangerxin/prism.client"
+
+[project.scripts]
+prism_client = "prism_client:cli"
+
+[tool.setuptools.dynamic]
+version = {file = ["version.txt"]}
+
 [tool.poetry]
 requires-poetry = ">=2.0"
 
