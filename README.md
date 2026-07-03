@@ -13,6 +13,11 @@ This README is intentionally focused on `prism_client.py` usage and examples.
 
 ## Install
 
+From pip
+```sh
+pip install prism.py.client
+```
+
 From this folder:
 
 ```sh
